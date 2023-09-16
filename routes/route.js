@@ -12,4 +12,6 @@ router.get('/:id', controller.getStudent)
 
 router.delete('/:id', controller.deleteStudent)
 
+router.put('/update/:roll', controller.updateStudent)
+
 module.exports = router

@@ -49,7 +49,21 @@ const deleteStudent = (async (req, res) => {
     }
 })
 
+const updateStudent = (async (req, res) => {
+    let { roll } = req.params
+    let body = req.body
+    console.log(body)
+    try {
+        const data = await studentModel.findOneAndUpdate(
+            { Roll: roll },body
+        )
+        res.status(500).json(data)
+    } catch (error) {
+        res.status(500).json(error)
+    }
+})
+
 
 module.exports = {
-    test, saveStudent, allStudent, getStudent, deleteStudent
+    updateStudent, test, saveStudent, allStudent, getStudent, deleteStudent
 }
